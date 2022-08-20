@@ -14,30 +14,27 @@ import java.util.Properties;
 public class MailService {
 
     public void sendEmailToUser(String mail, String message) {
-        System.out.println("Mail request sent to " + mail);
-
         sendEmail(mail, message);
+        System.out.println("Mail request sent to " + mail);
     }
 
     public void sendGreetingEmail(String mail) {
-        System.out.println("Greeting request sent to " + mail);
-
         sendEmail(mail, "Glad to see you " + mail  + ". Welcome to out site!");
+        System.out.println("Greeting request sent to " + mail);
     }
 
     public void sendEmailOnDeletion(String mail) {
-        System.out.println("Deletion request sent to  " + mail);
         sendEmail(mail, "It is sad that you go off so fast, " + mail  + ". Goodbye!");
+        System.out.println("Deletion request sent to  " + mail);
     }
 
     public void sendEmailOnUpdating(String mail) {
-        System.out.println("Updating request sent to " + mail);
-
         sendEmail(mail, "Your profile has been updated!");
+        System.out.println("Updating request sent to " + mail);
     }
     public String sendEmail(String mail, String msg) {
         String from = "sex-1994@mail.ru";
-        String pass = "$uoThAs31aRO";
+        String pass = "Pj20LvJzhBG68G3x3pJR";
         String[] to = { mail }; // list of recipient email addresses
         String subject = "Java send mail example";
 
@@ -72,8 +69,9 @@ public class MailService {
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-        } catch (MessagingException ae) {
-            return "eMail was not sent! An error occurred.";
+        } catch (MessagingException e) {
+            System.out.println("eMail was not sent! Error - " + e);
+            return "eMail was not sent!";
         }
         return "eMail sent successfully!";
     }
