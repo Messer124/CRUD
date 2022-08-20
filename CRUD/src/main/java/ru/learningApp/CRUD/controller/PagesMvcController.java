@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
-public class PagesController {
+public class PagesMvcController {
 
     @GetMapping("main")
     public ModelAndView getAdminPage() {
